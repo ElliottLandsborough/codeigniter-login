@@ -1,1 +1,1 @@
-# Login system for codeigniter. ToAdd: Tracking, sql
+# Login system for codeigniter. ToAdd: Tracking, sql, various
