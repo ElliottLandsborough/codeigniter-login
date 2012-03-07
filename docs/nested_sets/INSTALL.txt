@@ -1,0 +1,47 @@
+PACKAGE:    Nested_sets
+AUTHOR:     Thunder
+COPYRIGHT:  (c)2007 Thunder
+WARRANTY:   None whatsoever. Use entirely at your own risk.
+FILE:      INSTALL.txt
+
+Installation notes:
+
+I recommend installing the demo to get an idea of how the Nested_sets_model is
+intended to work. Here are the steps to accomplish this.
+
+ASSUMPTIONS:
+You have a working Code Igniter installation already in place. This package has
+been tested only with version 1.5.1 of CI but, as far as I'm aware, should work
+"out of the box" with previous incarnations.
+
+PROCEDURE:
+This package contains the following files:
+application/models/Nested_sets_model.php  - The principal file in this package
+
+
+application/controllers/Categories_demo.php   - Demo controller
+application/models/Categories_demo_model.php  - Demo model
+application/views/Categories_demo_view.php    - Demo view
+
+
+Copy all four files into the relevant folders in your Code Igniter installation
+and then apply the include .sql file to your database using your favourite method
+
+From the command line, this is:
+
+/path/to/mysql -u mysqluser -ppassword databasename < /path/to/categories_demo.sql
+
+Or you can use phpMyAdmin to load the SQL file accordingly.
+
+Once installed, you should now be able to view the demo by browsing to:
+
+http://www.yoursite.com/index.php/categories_demo
+
+If it works, you're done! 
+
+Regards,
+Thunder
+
+MY SETUP
+Apache 2.2, PHP 5.2.1, Code Igniter 1.5.1, MySQL 5.2
+
