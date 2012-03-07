@@ -7,6 +7,12 @@ added recently:
  - minor fixes
 
 todo:
+ - adapt nested sets
+ - vouchers
+ - tomo
+ - admin panel
+ - profiles
+ - investigate chat
  - Ajax form validation
  - capcha
  - password confirmation
