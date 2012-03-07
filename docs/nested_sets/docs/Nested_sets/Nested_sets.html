@@ -1,0 +1,2037 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>Docs For Class Nested_sets</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+						<script src="../media/lib/classTree.js"></script>
+												<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "../media/images/plus.png";
+				imgMinus.src = "../media/images/minus.png";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class Nested_sets</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">copyright:</span> Copyright (c) 2007 Thunder Raven-Stoker</li>
+				<li><span class="field">version:</span> 1.0</li>
+				<li><span class="field">author:</span> Thunder</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Nested_sets.php.html">/Nested_sets.php</a> (line <span class="field"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a18">18</a></span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																																								<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$CI" title="details" class="var-name">$CI</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$left_column_name" title="details" class="var-name">$left_column_name</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$primary_key_column_name" title="details" class="var-name">$primary_key_column_name</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$right_column_name" title="details" class="var-name">$right_column_name</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$table_name" title="details" class="var-name">$table_name</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																																																																																																																																																																																																																																																																																																																														
+				<div class="method-definition">
+											<span class="method-result">Nested_sets</span>
+										<a href="#Nested_sets" title="details" class="method-name">Nested_sets</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#appendNewChild" title="details" class="method-name">appendNewChild</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$parentNode</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$extrafields</span> = <span class="var-default">array()</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#appendSibling" title="details" class="method-name">appendSibling</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$focusNode</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$extrafields</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#checkIsValidNode" title="details" class="method-name">checkIsValidNode</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#checkNodeHasAncestor" title="details" class="method-name">checkNodeHasAncestor</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#checkNodeHasChildren" title="details" class="method-name">checkNodeHasChildren</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#checkNodeHasNextSibling" title="details" class="method-name">checkNodeHasNextSibling</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#checkNodeHasPrevSibling" title="details" class="method-name">checkNodeHasPrevSibling</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#checkNodeIsChild" title="details" class="method-name">checkNodeIsChild</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$testNode</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$controlNode</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#checkNodeIsChildOrEqual" title="details" class="method-name">checkNodeIsChildOrEqual</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$testNode</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$controlNode</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#checkNodeIsEqual" title="details" class="method-name">checkNodeIsEqual</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$testNode</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$controlNode</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#checkNodeIsLeaf" title="details" class="method-name">checkNodeIsLeaf</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#checkNodeIsRoot" title="details" class="method-name">checkNodeIsRoot</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#deleteNode" title="details" class="method-name">deleteNode</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#deleteTree" title="details" class="method-name">deleteTree</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getAncestor" title="details" class="method-name">getAncestor</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$currNode</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getBreadcrumbString" title="details" class="method-name">getBreadcrumbString</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$crumbfield</span> = <span class="var-default">&quot;name&quot;</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getFirstChild" title="details" class="method-name">getFirstChild</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$parentNode</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getLastChild" title="details" class="method-name">getLastChild</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$parentNode</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getNextSibling" title="details" class="method-name">getNextSibling</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$currNode</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getNodeAttribute" title="details" class="method-name">getNodeAttribute</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$fieldname</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getNodeLevel" title="details" class="method-name">getNodeLevel</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getNodeWhere" title="details" class="method-name">getNodeWhere</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$whereArg</span> = <span class="var-default">&quot;1=1&quot;</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getNodeWhereLeft" title="details" class="method-name">getNodeWhereLeft</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$leftval</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getNodeWhereRight" title="details" class="method-name">getNodeWhereRight</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$rightval</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getNumberOfChildren" title="details" class="method-name">getNumberOfChildren</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getPrevSibling" title="details" class="method-name">getPrevSibling</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$currNode</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getRoot" title="details" class="method-name">getRoot</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getTreeAttribute" title="details" class="method-name">getTreeAttribute</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$tree_handle</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$attribute</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getTreeCurrent" title="details" class="method-name">getTreeCurrent</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$tree_handle</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getTreeLevel" title="details" class="method-name">getTreeLevel</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$tree_handle</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getTreeNext" title="details" class="method-name">getTreeNext</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">&$tree_handle</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$tree_handle</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getTreePreorder" title="details" class="method-name">getTreePreorder</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">$node</span>
+										<a href="#initialiseRoot" title="details" class="method-name">initialiseRoot</a>
+											([<span class="var-type">$extrafields</span>&nbsp;<span class="var-name">$extrafields</span> = <span class="var-default">array()</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#insertNewChild" title="details" class="method-name">insertNewChild</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$parentNode</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$extrafields</span> = <span class="var-default">array()</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#insertSibling" title="details" class="method-name">insertSibling</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$focusNode</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$extrafields</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#printSubTree" title="details" class="method-name">printSubTree</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$fields</span> = <span class="var-default">array()</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#printTree" title="details" class="method-name">printTree</a>
+											([<span class="var-type">array</span>&nbsp;<span class="var-name">$fields</span> = <span class="var-default">array()</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setControlParams" title="details" class="method-name">setControlParams</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$table_name</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$left_column_name</span> = <span class="var-default">&quot;lft&quot;</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$right_column_name</span> = <span class="var-default">&quot;rgt&quot;</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#setNodeAsFirstChild" title="details" class="method-name">setNodeAsFirstChild</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$target</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#setNodeAsLastChild" title="details" class="method-name">setNodeAsLastChild</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$target</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#setNodeAsNextSibling" title="details" class="method-name">setNodeAsNextSibling</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$target</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#setNodeAsPrevSibling" title="details" class="method-name">setNodeAsPrevSibling</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$target</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setPrimaryKeyColumn" title="details" class="method-name">setPrimaryKeyColumn</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$primary_key_name</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#_moveNode" title="details" class="method-name">_moveNode</a>
+											(<span class="var-type">$node_int</span>&nbsp;<span class="var-name">$node_int</span>, <span class="var-type">$changeVal</span>&nbsp;<span class="var-name">$changeVal</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#_moveRange" title="details" class="method-name">_moveRange</a>
+											(<span class="var-type">$lowerbound</span>&nbsp;<span class="var-name">$lowerbound</span>, <span class="var-type">$upperbound</span>&nbsp;<span class="var-name">$upperbound</span>, <span class="var-type">$changeVal</span>&nbsp;<span class="var-name">$changeVal</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#_moveSubtree" title="details" class="method-name">_moveSubtree</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$targetValue</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#_setNewNode" title="details" class="method-name">_setNewNode</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$extrafields</span>)
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$CI" id="$CI"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$CI</span>
+			 = <span class="var-default"> &quot;&quot;</span>			(line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a20">20</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+		
+		
+
+</div>
+<a name="var$left_column_name" id="$left_column_name"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$left_column_name</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a22">22</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+		
+		
+
+</div>
+<a name="var$primary_key_column_name" id="$primary_key_column_name"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$primary_key_column_name</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a24">24</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+		
+		
+
+</div>
+<a name="var$right_column_name" id="$right_column_name"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$right_column_name</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a23">23</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+		
+		
+
+</div>
+<a name="var$table_name" id="$table_name"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$table_name</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a21">21</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodNested_sets" id="Nested_sets"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor Nested_sets</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a31">31</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor</p>
+<p class="description"><p>Constructor</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">Nested_sets</span>
+		<span class="method-name">
+			Nested_sets
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodappendNewChild" id="appendNewChild"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">appendNewChild</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a127">127</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Same as insertNewChild except the new node is added as the last child</p>
+<p class="description"><p>Same as insertNewChild except the new node is added as the last child</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> An associative array representing the new node</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			appendNewChild
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$parentNode</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$extrafields</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$parentNode</span><span class="var-description">: The node array of the parent to use</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$extrafields</span><span class="var-description">: An associative array of fieldname=&gt;value for the other fields in the recordset</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodappendSibling" id="appendSibling"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">appendSibling</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a162">162</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds a new node to the right of the supplied focusNode</p>
+<p class="description"><p>Adds a new node to the right of the supplied focusNode</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The New Node</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			appendSibling
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$focusNode</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$extrafields</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$focusNode</span><span class="var-description">: The node to use as the position marker</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$extrafields</span><span class="var-description">: An associative array of node attributes</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcheckIsValidNode" id="checkIsValidNode"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">checkIsValidNode</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a430">430</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns true or false</p>
+<p class="description"><p>Returns true or false (in reality, it checks to see if the given left and right values _appear_ to be valid not necessarily that they _are_ valid)</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			checkIsValidNode
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$node</span><span class="var-description">: The node to test</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcheckNodeHasAncestor" id="checkNodeHasAncestor"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">checkNodeHasAncestor</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a441">441</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Tests whether the given node has an ancestor</p>
+<p class="description"><p>Tests whether the given node has an ancestor (effectively the opposite of isRoot yes|no)</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			checkNodeHasAncestor
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$node</span><span class="var-description">: The node to test</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcheckNodeHasChildren" id="checkNodeHasChildren"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">checkNodeHasChildren</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a471">471</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Test to see if node has children</p>
+<p class="description"><p>Test to see if node has children</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			checkNodeHasChildren
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$node</span><span class="var-description">: The node to test</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcheckNodeHasNextSibling" id="checkNodeHasNextSibling"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">checkNodeHasNextSibling</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a461">461</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Test to see if node has siblings after itself</p>
+<p class="description"><p>Test to see if node has siblings after itself</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			checkNodeHasNextSibling
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$node</span><span class="var-description">: The node to test</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcheckNodeHasPrevSibling" id="checkNodeHasPrevSibling"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">checkNodeHasPrevSibling</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a451">451</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Tests whether the given node has a prior sibling or not</p>
+<p class="description"><p>Tests whether the given node has a prior sibling or not</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			checkNodeHasPrevSibling
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$node</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcheckNodeIsChild" id="checkNodeIsChild"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">checkNodeIsChild</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a502">502</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Test to see if the first given node is a child of the second given node</p>
+<p class="description"><p>Test to see if the first given node is a child of the second given node</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			checkNodeIsChild
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$testNode</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$controlNode</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$testNode</span><span class="var-description">: the node to test for child status</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$controlNode</span><span class="var-description">: the node to use as the parent or ancestor</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcheckNodeIsChildOrEqual" id="checkNodeIsChildOrEqual"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">checkNodeIsChildOrEqual</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a526">526</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Combination method of IsChild and IsEqual</p>
+<p class="description"><p>Combination method of IsChild and IsEqual</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			checkNodeIsChildOrEqual
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$testNode</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$controlNode</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$testNode</span><span class="var-description">: The node to test</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$controlNode</span><span class="var-description">: The node prototype to use for the comparison</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcheckNodeIsEqual" id="checkNodeIsEqual"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">checkNodeIsEqual</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a515">515</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Test to determine whether testNode is infact also controlNode (is A === B)</p>
+<p class="description"><p>Test to determine whether testNode is infact also controlNode (is A === B)</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			checkNodeIsEqual
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$testNode</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$controlNode</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$testNode</span><span class="var-description">: The node to test</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$controlNode</span><span class="var-description">: The node prototype to use for the comparison</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcheckNodeIsLeaf" id="checkNodeIsLeaf"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">checkNodeIsLeaf</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a491">491</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Test to see if the given node is a leaf node (ie has no children)</p>
+<p class="description"><p>Test to see if the given node is a leaf node (ie has no children)</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			checkNodeIsLeaf
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$node</span><span class="var-description">: The node to test</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcheckNodeIsRoot" id="checkNodeIsRoot"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">checkNodeIsRoot</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a481">481</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Test to see if the given node is also the root node</p>
+<p class="description"><p>Test to see if the given node is also the root node</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			checkNodeIsRoot
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$node</span><span class="var-description">: The node to test</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoddeleteNode" id="deleteNode"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">deleteNode</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a191">191</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Deletes the given node from the tree</p>
+<p class="description"><p>Deletes the given node from the tree</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The node that replaced the deleted node</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			deleteNode
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$node</span><span class="var-description">: The node to remove from the tree</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoddeleteTree" id="deleteTree"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">deleteTree</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a177">177</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Empties the table currently in use - use with extreme caution!</p>
+<p class="description"><p>Empties the table currently in use - use with extreme caution!</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			deleteTree
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetAncestor" id="getAncestor"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getAncestor</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a406">406</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the node that represents the parent of the given node</p>
+<p class="description"><p>Returns the node that represents the parent of the given node</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the node returned</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getAncestor
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$currNode</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$currNode</span><span class="var-description">: The node to use as the initial focus of enquiry</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetBreadcrumbString" id="getBreadcrumbString"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getBreadcrumbString</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a748">748</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns a &quot;breadcrumb&quot; string to trace the path from the given node</p>
+<p class="description"><p>Returns a &quot;breadcrumb&quot; string to trace the path from the given node back up to the root node</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The generated breadcrumb string</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getBreadcrumbString
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$crumbfield</span> = <span class="var-default">&quot;name&quot;</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$node</span><span class="var-description">: The node to use as the starting point</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$crumbfield</span><span class="var-description">: The field to use as the text for each element of the breadcrumb trail</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetFirstChild" id="getFirstChild"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFirstChild</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a366">366</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the first child node of the given parentNode</p>
+<p class="description"><p>Returns the first child node of the given parentNode</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The first child of the parent node supplied</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getFirstChild
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$parentNode</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$parentNode</span><span class="var-description">: The parent node to use</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetLastChild" id="getLastChild"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getLastChild</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a376">376</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the last child node of the given parentNode</p>
+<p class="description"><p>Returns the last child node of the given parentNode</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the last child of the parent node supplied</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getLastChild
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$parentNode</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$parentNode</span><span class="var-description">: The parent node to use</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetNextSibling" id="getNextSibling"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getNextSibling</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a396">396</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the node that is the next sibling of the given node</p>
+<p class="description"><p>Returns the node that is the next sibling of the given node</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The node returned</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getNextSibling
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$currNode</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$currNode</span><span class="var-description">: The node to use as the initial focus of enquiry</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetNodeAttribute" id="getNodeAttribute"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getNodeAttribute</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a685">685</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Queries the database for the value of the given field</p>
+<p class="description"><p>Queries the database for the value of the given field</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The value of the field for the node looked up</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getNodeAttribute
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$fieldname</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$node</span><span class="var-description">: The node to be queried</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$fieldname</span><span class="var-description">: The name of the field to query</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetNodeLevel" id="getNodeLevel"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getNodeLevel</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a554">554</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the tree level for the given node (assuming root node is at level 0)</p>
+<p class="description"><p>Returns the tree level for the given node (assuming root node is at level 0)</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The level of the supplied node</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getNodeLevel
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$node</span><span class="var-description">: The node to query</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetNodeWhere" id="getNodeWhere"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getNodeWhere</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a310">310</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Selects the first node to match the given where clause argument</p>
+<p class="description"><p>Selects the first node to match the given where clause argument</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The node returned from the query</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getNodeWhere
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$whereArg</span> = <span class="var-default">&quot;1=1&quot;</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$whereArg</span><span class="var-description">: Any valid SQL to follow the WHERE keyword in an SQL statement</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetNodeWhereLeft" id="getNodeWhereLeft"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getNodeWhereLeft</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a337">337</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the node identified by the given left value</p>
+<p class="description"><p>Returns the node identified by the given left value</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The node returned</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getNodeWhereLeft
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$leftval</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$leftval</span><span class="var-description">: The left value to use to select the node</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetNodeWhereRight" id="getNodeWhereRight"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getNodeWhereRight</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a347">347</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the node identified by the given right value</p>
+<p class="description"><p>Returns the node identified by the given right value</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The node returned</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getNodeWhereRight
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$rightval</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$rightval</span><span class="var-description">: The right value to use to select the node</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetNumberOfChildren" id="getNumberOfChildren"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getNumberOfChildren</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a544">544</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the number of descendents that a node has</p>
+<p class="description"><p>Returns the number of descendents that a node has</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The number of descendents</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getNumberOfChildren
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$node</span><span class="var-description">: The node to query</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetPrevSibling" id="getPrevSibling"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getPrevSibling</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a386">386</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the node that is the immediately prior sibling of the given node</p>
+<p class="description"><p>Returns the node that is the immediately prior sibling of the given node</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The node returned</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getPrevSibling
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$currNode</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$currNode</span><span class="var-description">: The node to use as the initial focus of enquiry</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetRoot" id="getRoot"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRoot</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a356">356</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the root node</p>
+<p class="description"><p>Returns the root node</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The node returned</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getRoot
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetTreeAttribute" id="getTreeAttribute"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTreeAttribute</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a647">647</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the given attribute (database field) for the current node in $tree_handle</p>
+<p class="description"><p>Returns the given attribute (database field) for the current node in $tree_handle</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The value requested</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getTreeAttribute
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$tree_handle</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$attribute</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$tree_handle</span><span class="var-description">: The tree as an array</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$attribute</span><span class="var-description">: A string containing the fieldname to retrieve</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetTreeCurrent" id="getTreeCurrent"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTreeCurrent</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a657">657</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the current node of the tree contained in $tree_handle</p>
+<p class="description"><p>Returns the current node of the tree contained in $tree_handle</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The left and right values of the current node</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getTreeCurrent
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$tree_handle</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$tree_handle</span><span class="var-description">: The tree as an array</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetTreeLevel" id="getTreeLevel"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTreeLevel</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a668">668</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the current level from the tree</p>
+<p class="description"><p>Returns the current level from the tree</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The integer value of the current level</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getTreeLevel
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$tree_handle</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$tree_handle</span><span class="var-description">: The tree as an array</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetTreeNext" id="getTreeNext"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTreeNext</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a621">621</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the next element from the tree and updates the tree_handle with the</p>
+<p class="description"><p>Returns the next element from the tree and updates the tree_handle with the new positions</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The next node in the tree</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getTreeNext
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">&$tree_handle</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$tree_handle</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$tree_handle</span><span class="var-description">: Passed by reference to allow for modifications</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$tree_handle</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetTreePreorder" id="getTreePreorder"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTreePreorder</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a583">583</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns an array of the tree starting from the supplied node</p>
+<p class="description"><p>Returns an array of the tree starting from the supplied node</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The tree represented as an array to assist with                            the other tree traversal operations</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getTreePreorder
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$node</span><span class="var-description">: The node to use as the starting point (typically root)</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodinitialiseRoot" id="initialiseRoot"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">initialiseRoot</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a92">92</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds the first entry to the table</p>
+<p class="description"><p>Adds the first entry to the table</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> an array of left and right values</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">$node</span>
+		<span class="method-name">
+			initialiseRoot
+		</span>
+					([<span class="var-type">$extrafields</span>&nbsp;<span class="var-name">$extrafields</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">$extrafields</span>
+				<span class="var-name">$extrafields</span><span class="var-description">: An array of field-&gt;value pairs for the database record</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodinsertNewChild" id="insertNewChild"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">insertNewChild</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a109">109</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">inserts a new node as the first child of the supplied parent node</p>
+<p class="description"><p>inserts a new node as the first child of the supplied parent node</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> An associative array representing the new node</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			insertNewChild
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$parentNode</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$extrafields</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$parentNode</span><span class="var-description">: The node array of the parent to use</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$extrafields</span><span class="var-description">: An associative array of fieldname=&gt;value for the other fields in the recordset</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodinsertSibling" id="insertSibling"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">insertSibling</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a144">144</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds a new node to the left of the supplied focusNode</p>
+<p class="description"><p>Adds a new node to the left of the supplied focusNode</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The new node</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			insertSibling
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$focusNode</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$extrafields</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$focusNode</span><span class="var-description">: The node to use as the position marker</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$extrafields</span><span class="var-description">: An associative array of node attributes</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprintSubTree" id="printSubTree"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">printSubTree</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a712">712</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Renders the fields for each node starting at the given node</p>
+<p class="description"><p>Renders the fields for each node starting at the given node</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			printSubTree
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$fields</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$node</span><span class="var-description">: The node to start with</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$fields</span><span class="var-description">: The fields to display for each node</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprintTree" id="printTree"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">printTree</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a736">736</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Renders the entire tree as per printSubTree starting from root</p>
+<p class="description"><p>Renders the entire tree as per printSubTree starting from root</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			printTree
+		</span>
+					([<span class="var-type">array</span>&nbsp;<span class="var-name">$fields</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$fields</span><span class="var-description">: An array of the fields to display</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetControlParams" id="setControlParams"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setControlParams</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a56">56</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">On initialising the instance, this method should be called to set the</p>
+<p class="description"><p>On initialising the instance, this method should be called to set the  database table name that we're dealing and also to identify the names  of the left and right value columns used to form the tree structure</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setControlParams
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$table_name</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$left_column_name</span> = <span class="var-default">&quot;lft&quot;</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$right_column_name</span> = <span class="var-default">&quot;rgt&quot;</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$table_name</span><span class="var-description">: The name of the db table to use</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$left_column_name</span><span class="var-description">: The name of the field representing the left identifier</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$right_column_name</span><span class="var-description">: The name of the field representing the right identifier</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetNodeAsFirstChild" id="setNodeAsFirstChild"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setNodeAsFirstChild</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a250">250</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Moves the given node to make it the first child of &quot;target&quot;</p>
+<p class="description"><p>Moves the given node to make it the first child of &quot;target&quot;</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The new left and right values of the node moved</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			setNodeAsFirstChild
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$target</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$node</span><span class="var-description">: The node to move</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$target</span><span class="var-description">: The node to use as the position marker</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetNodeAsLastChild" id="setNodeAsLastChild"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setNodeAsLastChild</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a262">262</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Moves the given node to make it the last child of &quot;target&quot;</p>
+<p class="description"><p>Moves the given node to make it the last child of &quot;target&quot;</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The new left and right values of the node moved</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			setNodeAsLastChild
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$target</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$node</span><span class="var-description">: The node to move</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$target</span><span class="var-description">: The node to use as the position marker</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetNodeAsNextSibling" id="setNodeAsNextSibling"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setNodeAsNextSibling</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a226">226</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Moves the given node to make it the next sibling of &quot;target&quot;</p>
+<p class="description"><p>Moves the given node to make it the next sibling of &quot;target&quot;</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The new left and right values of the node moved</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			setNodeAsNextSibling
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$target</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$node</span><span class="var-description">: The node to move</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$target</span><span class="var-description">: The node to use as the position marker</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetNodeAsPrevSibling" id="setNodeAsPrevSibling"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setNodeAsPrevSibling</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a238">238</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Moves the given node to make it the prior sibling of &quot;target&quot;</p>
+<p class="description"><p>Moves the given node to make it the prior sibling of &quot;target&quot;</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The new left and right values of the node moved</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			setNodeAsPrevSibling
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$target</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$node</span><span class="var-description">: The node to move</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$target</span><span class="var-description">: The node to use as the position marker</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetPrimaryKeyColumn" id="setPrimaryKeyColumn"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setPrimaryKeyColumn</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a72">72</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Used to identify the primary key of the table in use.</p>
+<p class="description"><p>Used to identify the primary key of the table in use. Commonly, this will be an auto_incrementing ID column (eg CategoryId)</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setPrimaryKeyColumn
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$primary_key_name</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$primary_key_name</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_moveNode" id="_moveNode"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">_moveNode</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a835">835</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">_moveNode</p>
+<p class="description"><p>_moveNode
+ Adds $changeVal to all left and right values that are greater than or equal to $node_int</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			_moveNode
+		</span>
+					(<span class="var-type">$node_int</span>&nbsp;<span class="var-name">$node_int</span>, <span class="var-type">$changeVal</span>&nbsp;<span class="var-name">$changeVal</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">$node_int</span>
+				<span class="var-name">$node_int</span><span class="var-description">: The value to start the shift from</span>			</li>
+					<li>
+				<span class="var-type">$changeVal</span>
+				<span class="var-name">$changeVal</span><span class="var-description">: unsigned integer value for change</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_moveRange" id="_moveRange"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">_moveRange</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a864">864</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">_moveRange</p>
+<p class="description"><p>_moveRange</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			_moveRange
+		</span>
+					(<span class="var-type">$lowerbound</span>&nbsp;<span class="var-name">$lowerbound</span>, <span class="var-type">$upperbound</span>&nbsp;<span class="var-name">$upperbound</span>, <span class="var-type">$changeVal</span>&nbsp;<span class="var-name">$changeVal</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">$lowerbound</span>
+				<span class="var-name">$lowerbound</span><span class="var-description">: integer value of lowerbound of range to move</span>			</li>
+					<li>
+				<span class="var-type">$upperbound</span>
+				<span class="var-name">$upperbound</span><span class="var-description">: integer value of upperbound of range to move</span>			</li>
+					<li>
+				<span class="var-type">$changeVal</span>
+				<span class="var-name">$changeVal</span><span class="var-description">: unsigned integer of change amount</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_moveSubtree" id="_moveSubtree"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">_moveSubtree</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a273">273</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The method that performs moving/renumbering operations</p>
+<p class="description"><p>The method that performs moving/renumbering operations</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The new left and right values of the node moved</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			_moveSubtree
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$targetValue</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$node</span><span class="var-description">: The node to move</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$targetValue</span><span class="var-description">: Position integer to use as the target</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_setNewNode" id="_setNewNode"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">_setNewNode</span> (line <span class="line-number"><a href="../__filesource/fsource_Nested_sets__Nested_sets.php.html#a781">781</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">_setNewNode</p>
+<p class="description"><p>_setNewNode
+  Inserts a new node into the tree</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> True/False dependent upon the success of the operation</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			_setNewNode
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$node</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$extrafields</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$node</span><span class="var-description">: An array containing the left and right values to use</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$extrafields</span><span class="var-description">: An associative array of field names to values for \                          additional columns in tree table (eg CategoryName etc)</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Tue, 30 Jan 2007 18:53:04 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.1</a>
+	</p>
+	</div></body>
+</html>
