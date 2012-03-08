@@ -10,27 +10,28 @@ class Userlib {
 		//return hash_hmac('sha512', uniqid(rand(), true), $site_key);
 	}
 
-	/*
-	Password encryption function using two separately located salts:
-	 - the codeigniter encryption key salt
-	 - a salt stored in the db
-	 - trixy coding so it looks like it's an md5 hash
-	 - sha512
-	 - probably slower than other stuff but secure as fuck
-	
-	To create the hash/salt:
-	$newhash = _passcrypt('password');
-	$salt = substr($string, 0, 16);
-	$hash = substr($string, -16);
-
-	To check 'password':
-	$dbhash = mysql -> get hash from table where userid == x;
-	$salt = substr($dbhash, 0, 16);
-	$check = _passcrypt('password',$salt);
-	$checkhash = substr($check, -16);
-	*/
+	// private password function
 	public function passcrypt($password,$salt=null)
 	{
+		/*
+		Password encryption function using two separately located salts:
+		 - the codeigniter encryption key salt
+		 - a salt stored in the db
+		 - trixy coding so it looks like it's an md5 hash
+		 - sha512
+		 - probably slower than other stuff but secure as fuck
+		
+		To create the hash/salt:
+		$newhash = _passcrypt('password');
+		$salt = substr($string, 0, 16);
+		$hash = substr($string, -16);
+
+		To check 'password':
+		$dbhash = mysql -> get hash from table where userid == x;
+		$salt = substr($dbhash, 0, 16);
+		$check = _passcrypt('password',$salt);
+		$checkhash = substr($check, -16);
+		*/
 		$CI =& get_instance();
 		$site_key = $CI->config->item('encryption_key'); // get the codeigniter encryption key
 	    if ($salt === null) // if the salt hasn's been set
@@ -136,21 +137,32 @@ class Userlib {
     public function activateuser($key)
     {
     	$CI =& get_instance();
-        $query = $CI->db->get_where('users', array('user_key' => $key));
-        $row = $query->row(0);
-        $this->user_key = 0;
-        $this->user_lastlogin = date("Y-m-d H:i:s");
-        $CI->load->library('permlib'); // must be called here because it depends on user_id
-		$input['user_id'] = $row->user_id;
-		$input['newmask'] = null;
-		$CI->permlib->SetMask($input);
-		$CI->permlib->AddPermission(permlib::ACCESS);
-		$input['user_perms'] = $CI->permlib->GetMask();
-		unset($input['newmask']);
-		$CI->permlib->SetPermissions($input);
-		return $CI->db->update('users', $this, array('user_key' => $row->user_key));
+    	$getwhere['user_key'] = substr($key,0,32);
+    	$getwhere['user_id'] = substr($key,32);
+        $query = $CI->db->get_where('users', $getwhere);
+        if ($query->num_rows() == 1)
+        {
+	        $row = $query->row(0);
+	        $this->user_key = 0;
+	        $this->user_lastlogin = date("Y-m-d H:i:s");
+	        $CI->load->library('permlib');
+			$input['user_id'] = $row->user_id;
+			$input['newmask'] = null;
+			$CI->permlib->SetMask($input);
+			$CI->permlib->AddPermission(permlib::ACCESS);
+			$input['user_perms'] = $CI->permlib->GetMask();
+			unset($input['newmask']);
+			$CI->permlib->SetPermissions($input);
+			return $CI->db->update('users', $this, array('user_key' => $row->user_key));
+		}
+		else
+		{
+			return true;
+		}
+
     }
 
 }
+
 
 ?>

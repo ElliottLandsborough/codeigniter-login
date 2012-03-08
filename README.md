@@ -3,14 +3,22 @@
 added recently:
  - nested set demo
  - permissions framework
- - login library
+ - secure login
+ - email validation
  - minor fixes
 
 todo:
+ - admin panel
+ - different usertypes:
+ --- normal user with profile
+ ------ can own vouchers of many manufacturers
+ --- company
+ ------ can edit/disable/own vouchers
+ --- moderator
+ --- superadmin
  - adapt nested sets
  - vouchers
  - tomo
- - admin panel
  - profiles
  - investigate chat
  - Ajax form validation
@@ -18,3 +26,27 @@ todo:
  - password confirmation
  - email confirmation
  - user groups
+
+ user_groups
+*perm_type
+group_name
+
+
+user_perms
+*user_id
+perm_type
+
+nested sets
+
+vouchers:
+
+*voucher_id
+voucher_title
+voucher_description
+voucher_worth
+voucher_status
+voucher_parent
+
+voucher_categories:
+category_id
+
