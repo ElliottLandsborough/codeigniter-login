@@ -1,3 +1,4 @@
+<pre>
 # Login system for codeigniter. ToAdd: Tracking, sql, various
 
 added recently:
@@ -6,6 +7,8 @@ added recently:
  - secure login
  - email validation
  - minor fixes
+ - minify html - line 18 of hools/compress.php
+ - minify js if need be - plugin installed
 
 todo:
  - permissions per post e.g only friends can see this, private for me, anyone but friends can see this
@@ -21,9 +24,9 @@ todo:
  - vouchers
  - tomo
  - profiles
- - investigate chat
+ - chat - http://www.bluejavax.com/gmailfacebook-like-chat-with-codeigniter/
  - Ajax form validation
- - capcha
+ - captcha
  - password confirmation
  - email confirmation
  - user groups
@@ -50,4 +53,4 @@ voucher_parent
 
 voucher_categories:
 category_id
-
+</pre>

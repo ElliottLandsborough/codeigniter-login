@@ -8,15 +8,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title></title>
   <meta name="description" content="">
-
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="/css/style.css">
-
   <script src="/js/libs/modernizr-2.5.3.min.js"></script>
 </head>
 <body>
   <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
-
   <header>
   <!-- The <header> element should be used as a container for introductory content or set of navigational links. -->
   </header>

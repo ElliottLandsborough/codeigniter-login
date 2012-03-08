@@ -8,7 +8,4 @@ else
 {
     echo '<a href="/user/login">login</a> or <a href="/user/register">register</a>';
 }
-echo '<pre>';
-print_r($this->session->userdata);
-echo '</pre>';
 ?>
