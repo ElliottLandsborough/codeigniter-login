@@ -53,8 +53,6 @@ class Userlib {
 		$user_id = $hashresult['user_id'];
 		$user_name = $hashresult['user_name'];
 		$user_email = $hashresult['user_email'];
-		$user_status = $hashresult['user_status'];
-		$user_perms = $hashresult['user_perms'];
 		if (!$hash)
 		{
 			$this->logout();
@@ -70,7 +68,8 @@ class Userlib {
 				$CI->session->set_userdata('user_id', $user_id);
 				$CI->session->set_userdata('user_name', $user_name);
 				$CI->session->set_userdata('user_email', $user_email);
-				$CI->session->set_userdata('user_status', $user_status);
+				$CI->load->library('permlib'); // must be called here because it depends on user_id
+				$user_perms = $CI->permlib->getperms();
 				$CI->session->set_userdata('user_perms', $user_perms);
 				$CI->session->set_userdata('logged_in', TRUE);
 				return true;
@@ -112,9 +111,6 @@ class Userlib {
             $result['user_id'] = $row->user_id;
             $result['user_name'] = $row->user_name;
             $result['user_email'] = $row->user_email;
-            $result['user_status'] = $row->user_status;
-            $CI->load->library('permlib');
-			$result['user_perms'] = $CI->permlib->getperms();
             return $result;
         }
         else 
@@ -130,7 +126,6 @@ class Userlib {
         $this->user_name = $form['login'];
         $this->user_email = $form['email'];
         $this->user_password = $form['hash'];
-        $this->user_status = 'u';
         $this->user_lastlogin = $form['datetime'];
         $this->user_joindate = $form['datetime'];
         $this->user_key = $form['key'];
@@ -145,8 +140,15 @@ class Userlib {
         $row = $query->row(0);
         $this->user_key = 0;
         $this->user_lastlogin = date("Y-m-d H:i:s");
-        $this->user_status = 'v';
-        return $CI->db->update('users', $this, array('user_key' => $row->user_key));
+        $CI->load->library('permlib'); // must be called here because it depends on user_id
+		$input['user_id'] = $row->user_id;
+		$input['newmask'] = null;
+		$CI->permlib->SetMask($input);
+		$CI->permlib->AddPermission(permlib::ACCESS);
+		$input['user_perms'] = $CI->permlib->GetMask();
+		unset($input['newmask']);
+		$CI->permlib->SetPermissions($input);
+		return $CI->db->update('users', $this, array('user_key' => $row->user_key));
     }
 
 }
