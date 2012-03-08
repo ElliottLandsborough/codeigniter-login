@@ -19,7 +19,9 @@ class Admin extends CI_Controller {
     		$perms = 15; // for now, 15 is the highest a person can be without being a profile or voucher mod.
             $this->load->model('listusers');
     		$input['theusers'] = $this->listusers->get_users($perms);
-    		$this->load->view('adminlistusers',$input);
+    		$this->load->view('header',$input);
+            $this->load->view('adminlistusers',$input);
+            $this->load->view('footer',$input);
     	}
 	}
 }

@@ -4,7 +4,7 @@ class User extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('welcome');
+		echo 'profile index';//profile index
 	}
 
 	public function register()
@@ -91,4 +91,5 @@ class User extends CI_Controller {
 			redirect('/', 'refresh');
 		}
 	}
+
 }

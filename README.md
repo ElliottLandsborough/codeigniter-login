@@ -8,7 +8,8 @@ added recently:
  - minor fixes
 
 todo:
- - admin panel
+ - permissions per post e.g only friends can see this, private for me, anyone but friends can see this
+ - admin panel - change perms
  - different usertypes:
  --- normal user with profile
  ------ can own vouchers of many manufacturers
