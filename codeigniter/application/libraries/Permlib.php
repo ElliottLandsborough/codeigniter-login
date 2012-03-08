@@ -51,9 +51,12 @@ class Permlib {
         		$pquery = $CI->db->get_where('user_perms', array('user_id' => $input['user_id']));
         	}
 		}
-		$prow = $pquery->row(0);
-       	$perms = $prow->user_perms;
-        return $perms;
+		if ($pquery->num_rows() != 0)
+		{
+			$prow = $pquery->row(0);
+   			$perms = $prow->user_perms;
+       		return $perms;
+       	}
 	}
 
 	// setup default permission set
@@ -63,7 +66,6 @@ class Permlib {
 		$perms->user_id = $input['user_id'];
 		// default permissions for standard users
 		$permsarray = array( 
-			//permlib::ACCESS,
 			permlib::EDIT_SELF,
 			permlib::DISABLE_SELF,
 			permlib::VIEW_VOUCHERS
@@ -73,7 +75,10 @@ class Permlib {
 			$this->AddPermission($perm);
 		}
 		$perms->user_perms = $this->GetMask();
-		return ($CI->db->insert('user_perms', $perms));
+		if ($perms->user_id != null)
+		{
+			return ($CI->db->insert('user_perms', $perms));
+		}
 	}
 
 	public function SetPermissions($input)

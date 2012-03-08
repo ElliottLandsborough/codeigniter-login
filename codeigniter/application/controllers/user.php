@@ -35,7 +35,8 @@ class User extends CI_Controller {
 					if($this->userlib->adduser($form))
 					{
 						// to make into email
-						echo 'Please verify your email <a href="activate/'.$form['key'].'">here</a>.';
+						$activationkey = $form['key'].mysql_insert_id();
+						echo 'Please verify your email <a href="activate/'.$activationkey.'">here</a>.';
 					}
 				}
 			}

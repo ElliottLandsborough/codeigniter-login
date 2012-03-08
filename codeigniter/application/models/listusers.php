@@ -16,13 +16,12 @@ class Listusers extends CI_Model {
                             users.user_name, 
                             users.user_email,
                             users.user_password,
-                            users.user_status,
                             users.user_lastlogin,
                             users.user_joindate,
                             user_perms.user_perms');
         $this->db->from('users');
         $this->db->join('user_perms', 'users.user_id = user_perms.user_id');
-        $this->db->where('user_perms.user_perms', $perms);
+        $this->db->where('user_perms.user_perms <=', $perms);
         $q = $this->db->get();
         return $q;
     }
