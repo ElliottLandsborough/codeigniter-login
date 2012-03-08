@@ -16,7 +16,7 @@ class Permlib {
     const VOUCHERS = 8; // vouchers
     const BRAND = 16; // brand profile
     const MODERATOR = 32; // mod profile
-    const ADMIN = 64; // admin profile
+    const ADMINISTRATOR = 64; // admin profile
     // insert categorized perms here - up to 32 per cat
     /*
 	communicate:

@@ -1,8 +1,1 @@
-/* Author:
-
-*/
-
-
-
-
-
+/* All scripts in here will be minified on the fly */
