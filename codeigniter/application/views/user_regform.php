@@ -2,7 +2,7 @@
 echo validation_errors();
 $this->load->helper('form');
 $attributes = array('class' => 'register');
-echo form_open('user/register', $attributes);
+echo form_open('/user/register', $attributes);
 $username = array(
               'name'        => 'username',
               'class'          => 'username',

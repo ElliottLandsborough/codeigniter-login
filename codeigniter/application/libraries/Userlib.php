@@ -50,8 +50,11 @@ class Userlib {
 
 		$hashresult = $this->gethash($form['login']);
 		$hash = $hashresult['hash'];
+		$user_id = $hashresult['user_id'];
 		$user_name = $hashresult['user_name'];
 		$user_email = $hashresult['user_email'];
+		$user_status = $hashresult['user_status'];
+		$user_perms = $hashresult['user_perms'];
 		if (!$hash)
 		{
 			$this->logout();
@@ -64,8 +67,11 @@ class Userlib {
 			if ($hash == $check && $form['login'] != '')
 			{
 				$CI =& get_instance();
+				$CI->session->set_userdata('user_id', $user_id);
 				$CI->session->set_userdata('user_name', $user_name);
 				$CI->session->set_userdata('user_email', $user_email);
+				$CI->session->set_userdata('user_status', $user_status);
+				$CI->session->set_userdata('user_perms', $user_perms);
 				$CI->session->set_userdata('logged_in', TRUE);
 				return true;
 			}
@@ -103,8 +109,12 @@ class Userlib {
         		$row = $equery->row(0);
         	}
             $result['hash'] = $row->user_password;
+            $result['user_id'] = $row->user_id;
             $result['user_name'] = $row->user_name;
             $result['user_email'] = $row->user_email;
+            $result['user_status'] = $row->user_status;
+            $CI->load->library('permlib');
+			$result['user_perms'] = $CI->permlib->getperms();
             return $result;
         }
         else 

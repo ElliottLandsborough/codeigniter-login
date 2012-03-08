@@ -30,11 +30,14 @@ class Permlib {
 		$CI =& get_instance();
 		if ($user_id==null)
 		{
-			$login = $CI->session->userdata('user_login');
+			// is it safe to store user_id in php session? if not then uncomment this shit
+			// which will add an extra query per getperms() but will keep user_id out of php's session
+			/*$login = $CI->session->userdata('user_login');
 			$email = $CI->session->userdata('user_email');
         	$query = $CI->db->get_where('users', array('user_name' => $login,'user_email' => $email));
         	$row = $query->row(0);
-        	$input['user_id'] = $row->user_id;
+        	$input['user_id'] = $row->user_id;*/
+        	$input['user_id'] = $CI->session->userdata('user_id');
         }
         else
         {
