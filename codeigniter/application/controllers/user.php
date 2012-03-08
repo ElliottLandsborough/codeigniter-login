@@ -5,8 +5,6 @@ class User extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('welcome');
-		$this->load->library('permlib');
-		echo $this->permlib->getperms();
 	}
 
 	public function register()
@@ -57,11 +55,13 @@ class User extends CI_Controller {
 	{
 		$this->load->library('userlib');
 		$this->userlib->logout();
-		$this->load->view('welcome');
+		$this->load->helper('url');
+		redirect('/', 'refresh');
 	}
 
 	public function login($data=null)
 	{
+		$this->load->helper('url');
 		if ($this->session->userdata('logged_in') != TRUE)
 		{
 			echo $this->session->userdata('logged_in');
@@ -82,8 +82,12 @@ class User extends CI_Controller {
 			}
 			else
 			{
-				$this->load->view('welcome');
+				redirect('/', 'refresh');
 			}
+		}
+		else
+		{
+			redirect('/', 'refresh');
 		}
 	}
 }
