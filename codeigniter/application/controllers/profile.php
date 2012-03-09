@@ -22,16 +22,22 @@ class Profile extends CI_Controller {
 		if ($query->num_rows() == 1)
 		{
 			$this->profileview($query);
-			/*
-			user
-				
-			brand
-				
-			mod
-
-			admin
-			*/
 		}
+	}
+
+	public function profileview($query)
+	{
+		print_r($query->result());
+		/*
+		user
+			
+		brand
+		
+		mod
+
+		admin
+		*/
+		
 	}
 
 }

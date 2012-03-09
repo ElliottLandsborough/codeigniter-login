@@ -70,7 +70,7 @@ class Userlib {
 				$CI->session->set_userdata('user_name', $user_name);
 				$CI->session->set_userdata('user_email', $user_email);
 				$CI->load->library('permlib'); // must be called here because it depends on user_id
-				$user_perms = $CI->permlib->getperms();
+				$user_perms = $CI->permlib->getmyperms();
 				$CI->session->set_userdata('user_perms', $user_perms);
 				$CI->session->set_userdata('logged_in', TRUE);
 				return true;

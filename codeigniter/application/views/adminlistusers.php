@@ -11,7 +11,7 @@ foreach ($theusers->result_array() as $row)
 {
 	echo '<tr>';
    echo '<td>';
-   echo '<a href="/profile/'.$row['user_id'].'">'.$row['user_name'].'</a>';
+   echo '<a href="/profile/view/'.$row['user_id'].'">'.$row['user_name'].'</a>';
    echo '</td>';
    echo '<td>';
    $this->load->helper('url');
