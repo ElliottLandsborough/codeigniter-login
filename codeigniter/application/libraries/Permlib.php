@@ -18,34 +18,33 @@ class Permlib {
     const MODERATOR = 32; // mod profile
     const ADMINISTRATOR = 64; // admin profile
     // insert categorized perms here - up to 32 per cat
-    /*
-	communicate:
-		post on walls? (yes/no) visibility:
-			public
-			friends only
-			private
-		update status? (yes/no) visibility:
-			public
-			friends only
-			private
-		can have friends? (yes/no) visibility:
-			public
-			friends only
-			private
-		photo (yes/no) visibility:
-			public
-			friends only
-			private
-		chat (yes/no)
-		private message (yes/no)
-
-	edit (yes/no)
-
+    
+    // communication permissions
+    const WALL = 1; // post on walls
+    const STATUS = 2; // update status
+    const FRIENDS = 4; // can have friends
+    const PHOTO = 8; // can photo
+    const CHAT = 16; // can chat
+    const PRIVATE_MESSAGE = 32; // can private message
+    
+    /* TODO
 	vouchers:
 		own (yes/no)
 		trade (yes/no)
 		bid?? (yes/no)
 
+	brand:
+		leave this for now,
+		combination of own/edit
+		vouchers and also
+		profile with wall etc
+
+	pretty much any content at all:
+		public
+		friends only
+		private
+		public minus friends?
+		password protected?
     */
 
     public function __construct()
@@ -54,59 +53,152 @@ class Permlib {
         $this->Mask = $Mask;
         $CI =& get_instance();
         $dbperms = $this->getperms($CI->session->userdata('user_id'));
-        if ($dbperms != $CI->session->userdata('user_perms'));
+        $theperms = $dbperms['user_perms'];
+        if ($theperms != $CI->session->userdata('user_perms'));
         {
-        	$CI->session->set_userdata('user_perms', $dbperms);
+        	$CI->session->set_userdata('user_perms', $theperms);
         }
     }
 
-    // return the users permissions
-    public function getperms($user_id=null)
+    // default permission sets and tables/fields
+    public function defaultperms($input)
+    {
+    	if ($input['permsarray'] == permlib::ACCESS)
+		{
+			$input['table'] = 'user_perms';
+			$input['field'] = 'user_perms';
+			// default permissions for standard users
+			$permsarray = array( 
+				permlib::COMMUNICATE,
+				permlib::EDIT,
+				permlib::VOUCHERS
+			);
+		}
+		else if ($input['permsarray'] == permlib::COMMUNICATE)
+		{
+			$input['table'] = 'user_communication';
+			$input['field'] = 'communication_perms';
+			// default communication perms
+    		$permsarray = array( 
+    			permlib::WALL,
+				permlib::STATUS,
+				permlib::FRIENDS,
+				permlib::PHOTO,
+				permlib::CHAT,
+				permlib::PRIVATE_MESSAGE
+			);
+		}
+		return $input;
+    }
+
+    public function getmyperms()
+    {
+    	$CI =& get_instance();
+    	$input['user_id'] = $CI->session->userdata('user_id');
+    	return  $this->getperms($input);
+    }
+
+    public function getperms($input)
+    {
+    	$user_id = $input['user_id'];
+    	$user_id = $input['user_id'];
+    }
+    /*
+	
+    */
+    /*
+	// return the users permissions
+    public function getperms($input)
 	{
-		$CI =& get_instance();	
-		if ($user_id==null)
-		{
-			$input['user_id'] = $CI->session->userdata('user_id');
-		}
-		else
-		{
-			$input['user_id'] = $user_id;
-		}
-		$pquery = $CI->db->get_where('user_perms', array('user_id' => $input['user_id']));
+		$CI =& get_instance();
+		$user_id = $input['user_id'];
+		$output['user_id'] = $user_id;
+		$pquery = $CI->db->get_where('user_perms', array('user_id' => $output['user_id']));
 		if ($pquery->num_rows() == 0)
 		{
-			if ($this->DefaultPerms($input))
+			$output['permsarray'] = permlib::ACCESS;
+			if ($this->DefaultPerms($output))
         	{
-        		$pquery = $CI->db->get_where('user_perms', array('user_id' => $input['user_id']));
+        		$pquery = $CI->db->get_where('user_perms', array('user_id' => $output['user_id']));
         	}
 		}
 		if ($pquery->num_rows() != 0)
 		{
 			$prow = $pquery->row(0);
-   			$perms = $prow->user_perms;
+   			$perms['user_perms'] = $prow->user_perms;
        		return $perms;
        	}
 	}
 
-	// setup default permission set
+
+    public function secperms($input)
+    {
+    	$CI =& get_instance();
+    	$perms = $this->getperms($input);
+    	$perms['newmask'] = $perms['user_perms'];
+	   	$this->SetMask($perms);
+    	if($this->InvokePermission(permlib::ADMINISTRATOR))
+    	{
+    		
+    	}
+    	else if ($this->InvokePermission(permlib::MODERATOR))
+    	{
+
+    	}
+    	else if ($this->InvokePermission(permlib::BRAND))
+    	{
+
+    	}
+    	else if ($this->InvokePermission(permlib::ACCESS))
+    	{
+    		
+    		$pquery = $CI->db->get_where('user_communication', array('user_id' => $input['user_id']));
+    		$prow = $pquery->row(0);
+    		$perms['communication_perms'] = $prow->communication_perms;
+    	}
+    	unset($perms['newmask']);
+    	return $perms;
+    }
+
+    // setup default permission set
 	public function DefaultPerms($input)
 	{
 		$CI =& get_instance();
 		$perms->user_id = $input['user_id'];
-		// default permissions for standard users
-		$permsarray = array( 
-			permlib::COMMUNICATE,
-			permlib::EDIT,
-			permlib::VOUCHERS
+		if ($input['permsarray'] == permlib::ACCESS)
+		{
+			$input['table'] = 'user_perms';
+			$input['field'] = 'user_perms';
+			// default permissions for standard users
+			$permsarray = array( 
+				permlib::COMMUNICATE,
+				permlib::EDIT,
+				permlib::VOUCHERS
 			);
+		}
+		else if ($input['permsarray'] == permlib::COMMUNICATE)
+		{
+			$input['table'] = 'user_communication';
+			$input['field'] = 'communication_perms';
+			// default communication perms
+    		$permsarray = array( 
+    			permlib::WALL,
+				permlib::STATUS,
+				permlib::FRIENDS,
+				permlib::PHOTO,
+				permlib::CHAT,
+				permlib::PRIVATE_MESSAGE
+			);
+		}
 		foreach ($permsarray as $perm)
 		{
 			$this->AddPermission($perm);
 		}
-		$perms->user_perms = $this->GetMask();
+		$tablename = $input['field'];
+		$perms->$tablename = $this->GetMask();
 		if ($perms->user_id != null)
 		{
-			return ($CI->db->insert('user_perms', $perms));
+			return ($CI->db->insert($input['table'], $perms));
 		}
 	}
 
@@ -117,13 +209,14 @@ class Permlib {
 		$perms->user_perms = $input['user_perms'];
 		$CI->db->where('user_id', $user_id);
 		return $CI->db->update('user_perms', $perms);
-	}
+	}*/
 
 	public function SetMask($input)
 	{
 		if ($input['newmask']==null)
 		{
-			$this->Mask = $this->getperms($input['user_id']);
+			$theperms = $this->getperms($input['user_id']);
+			$this->Mask = $theperms['user_perms'];
 		}
 		else
 		{

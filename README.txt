@@ -1,3 +1,8 @@
+currently fucked:
+ - permlib.php
+ half way through modularizing permlib.php and adapting it to work with all permission subsets and defaults
+ getperms needs to run through and if the perms so not exist yet it needs to get the defaults from defaultperms and then use them to write the default perms in the table
+
 added recently:
  - nested set demo
  - permissions framework
@@ -7,7 +12,8 @@ added recently:
  - minify html - line 18 of tools/compress.php
  - minify js if need be - plugin installed
 
-todo:
+todo
+ - auto initialization of all perm levels
  - tracking
  - permissions per post e.g only friends can see this, private for me, anyone but friends can see this
  - admin panel - change perms
