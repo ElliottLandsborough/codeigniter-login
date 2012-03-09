@@ -1,16 +1,14 @@
-<pre>
-# Login system for codeigniter. ToAdd: Tracking, sql, various
-
 added recently:
  - nested set demo
  - permissions framework
  - secure login
  - email validation
  - minor fixes
- - minify html - line 18 of hools/compress.php
+ - minify html - line 18 of tools/compress.php
  - minify js if need be - plugin installed
 
 todo:
+ - tracking
  - permissions per post e.g only friends can see this, private for me, anyone but friends can see this
  - admin panel - change perms
  - different usertypes:
@@ -53,4 +51,3 @@ voucher_parent
 
 voucher_categories:
 category_id
-</pre>
