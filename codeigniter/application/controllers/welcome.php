@@ -9,6 +9,6 @@ class Welcome extends CI_Controller {
 		$this->load->view('footer');
 		$this->load->library('permlib');
 		$input['user_id']="36";
-		//print_r($this->permlib->secperms($input));
+		$this->permlib->RefreshMyPerms();
 	}
 }
