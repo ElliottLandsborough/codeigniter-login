@@ -1,7 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Permlib {
-
 	/**
 	permissions - must increase in doubles to work
 	AFTER DEPLOYMENT THESE CANNOT BE CHANGED EVER WITHOUT SERIOUS RISK OF CLUSTERFUCK.
@@ -49,7 +48,6 @@ class Permlib {
 		public minus friends?
 		password protected?
     */
-
     public function __construct()
     {
     	$this->RefreshMyPerms();

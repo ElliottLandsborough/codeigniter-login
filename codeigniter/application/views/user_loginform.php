@@ -20,6 +20,7 @@ $password = array(
               //'type'        => 'password',
             );
 echo form_input($password);
+echo $html_captcha;
 echo form_submit('dologon', 'login');
 form_close()
 ?>
