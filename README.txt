@@ -1,8 +1,3 @@
-currently fucked:
- - permlib.php
- half way through modularizing permlib.php and adapting it to work with all permission subsets and defaults
- getperms needs to run through and if the perms do not exist yet it needs to get the defaults from defaultperms and then use them to write the default perms in the table
-
 added recently:
  - nested set demo
  - permissions framework
