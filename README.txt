@@ -6,6 +6,7 @@ added recently:
  - minor fixes
  - minify html - line 18 of tools/compress.php
  - minify js if need be - plugin installed
+ - captcha
 
 todo
  - db caching
