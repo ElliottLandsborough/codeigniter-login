@@ -68,27 +68,51 @@ class User extends CI_Controller {
 			echo $this->session->userdata('logged_in');
 			$form['login'] = $this->input->post('username');
 			$form['pass'] = $this->input->post('password');
-			$this->load->library('userlib');
-			if (!$this->userlib->checklogin($form))
-			{
-				$data['loginerror'] = TRUE;
-			}
 			$this->load->helper(array('form', 'url'));
 			$this->load->library('form_validation');
 			$this->form_validation->set_rules('username', 'Username', 'required|min_length[3]|max_length[26]');
 			$this->form_validation->set_rules('password', 'Password', 'required|min_length[6]|max_length[32]');
+			$this->form_validation->set_rules('recaptcha_response_field', 'Captcha', 'required|callback_recaptcha_validation');
+			$this->form_validation->set_message('recaptcha_validation', 'Invalid ReCaptcha entry.');
+			$this->load->helper('recaptcha');
+			$pubkey = '6Le0wc4SAAAAAIqQv17QjVwaOGQq4JDPFo5121RY';
+			$data['html_captcha'] = recaptcha_get_html($pubkey);
 			if ($this->form_validation->run() == FALSE)
 			{
 				$this->load->view('user_loginform', $data);
 			}
 			else
 			{
+				$this->load->library('userlib');
+				$this->userlib->checklogin($form);
 				redirect('/', 'refresh');
+				//return true;
 			}
 		}
 		else
 		{
 			redirect('/', 'refresh');
+			// return true;
+		}
+
+	}
+
+	public function recaptcha_validation($string)
+	{
+		$this->load->helper('recaptcha');
+		$privkey = '6Le0wc4SAAAAACQHyLcn0NaB3INfxuy-Nzv3qfA4';
+		$return = recaptcha_check_answer($privkey,
+										$_SERVER["REMOTE_ADDR"],
+										$this->input->post("recaptcha_challenge_field"),
+										$this->input->post("recaptcha_response_field"));
+		if(!$return->is_valid) 
+	    {
+			//$this->session->set_userdata("recaptcha_validation",'Code entered is invalid !');
+			return FALSE;
+		}
+		else 
+	    {
+			return TRUE;
 		}
 	}
 
