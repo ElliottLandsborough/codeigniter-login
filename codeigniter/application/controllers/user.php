@@ -109,8 +109,8 @@ class User extends CI_Controller {
 										$this->input->post("recaptcha_response_field"));
 		if(!$return->is_valid) 
 	    {
-			//$this->session->set_userdata("recaptcha_validation",'Code entered is invalid !');
-			return FALSE;
+			//return FALSE; // UNCOMMENT TO ENABLE CAPTCHA
+			return TRUE;
 		}
 		else 
 	    {
