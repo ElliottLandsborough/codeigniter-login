@@ -2,7 +2,7 @@
 echo 'Welcome, ';
 if ($this->session->userdata('logged_in') == TRUE)
 {
-    echo $this->session->userdata('user_name').'. <a href="/user/logout">Logout</a>';
+    echo '<a href="/profile/me">'.$this->session->userdata('user_name').'</a>. <a href="/user/logout">Logout</a>';
 }
 else
 {

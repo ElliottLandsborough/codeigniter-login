@@ -17,7 +17,7 @@ $password = array(
               'value'       => '',
               'maxlength'   => '32',
               'size'        => '26',
-              //'type'        => 'password',
+              'type'        => 'password',
             );
 echo form_input($password);
 echo $html_captcha;

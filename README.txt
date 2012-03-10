@@ -7,22 +7,25 @@ added recently:
  - minify html - line 18 of tools/compress.php
  - minify js if need be - plugin installed
  - captcha
+ - password/email confirmation on registration
 
-todo
+todo:
+ - search
+ - admin panel - change perms
+ - vouchers
+ - adapt nested sets
+ - profiles
+ - edit profiles
+ - user groups
+ - post content
+
+todo later:
+ - Ajax form validation
+ - chat - http://www.bluejavax.com/gmailfacebook-like-chat-with-codeigniter/ ?
+ - tomo
+ - permissions per post e.g only friends can see this, private for me, anyone but friends can see this
  - db caching
  - tracking
- - permissions per post e.g only friends can see this, private for me, anyone but friends can see this
- - admin panel - change perms
- - adapt nested sets
- - vouchers
- - tomo
- - profiles
- - chat - http://www.bluejavax.com/gmailfacebook-like-chat-with-codeigniter/
- - Ajax form validation
- - captcha
- - password confirmation
- - email confirmation
- - user groups
 
 vouchers:
 
@@ -30,8 +33,20 @@ vouchers:
 voucher_title
 voucher_description
 voucher_worth
-voucher_status
 voucher_parent
+voucher_owner
+voucher_category
+voucher_perms
+
+voucher_permissions:
+PUBLIC 1
+MEMBERS_ONLY 2
 
 voucher_categories:
 category_id
++nested set items
+
+friends
+*user_id
+friend_id
+accepted

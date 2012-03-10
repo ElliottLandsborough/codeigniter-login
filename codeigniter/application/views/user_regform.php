@@ -13,7 +13,14 @@ $username = array(
 $email = array(
               'name'        => 'email',
               'class'          => 'email',
-              'value'       => 'email address',
+              'value'       => 'email',
+              'maxlength'   => '40',
+              'size'        => '16',
+            );
+$emailconf = array(
+              'name'        => 'emailconf',
+              'class'          => 'emailconf',
+              'value'       => 'email',
               'maxlength'   => '40',
               'size'        => '16',
             );
@@ -23,11 +30,21 @@ $password = array(
               'value'       => 'password',
               'maxlength'   => '32',
               'size'        => '16',
-              //'type'		=> 'password',
+              'type'		=> 'password',
             );
-echo form_input($username);
-echo form_input($email);
-echo form_input($password);
+$passconf = array(
+              'name'        => 'passconf',
+              'class'          => 'passconf',
+              'value'       => 'password',
+              'maxlength'   => '32',
+              'size'        => '16',
+              'type'        => 'password',
+            );
+echo form_input($username).'<br />';
+echo form_input($email).'<br />';
+echo form_input($emailconf).'<br />';
+echo form_input($password).'<br />';
+echo form_input($passconf).'<br />';
 echo form_submit('doregister', 'register');
 form_close()
 ?>
