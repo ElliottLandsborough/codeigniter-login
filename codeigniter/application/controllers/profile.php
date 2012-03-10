@@ -9,7 +9,9 @@ class Profile extends CI_Controller {
 
 	public function me()
 	{
-		$this->view($this->session->userdata('user_id'));
+		$user_id = $this->session->userdata('user_id');
+		$this->load->helper('url');
+		redirect('/profile/view/'.$user_id, 'refresh');
 	}
 
 	public function view($user)
