@@ -15,7 +15,7 @@ class Admin extends CI_Controller {
     	if ($this->permlib->InvokePermission(Permlib::ADMINISTRATOR) != 0 || $this->permlib->InvokePermission(Permlib::MODERATOR) != 0)
     	{
     		// todo: perms being passed correctly to db model so that only correct users are shown
-    		$perms = 7; // for now, 15 is the highest a person can be without being a profile or voucher mod.
+    		$perms = 14; // for now, 15 is the highest a person can be without being a profile or voucher mod.
             $this->load->model('listusers');
     		$input['theusers'] = $this->listusers->get_users($perms);
     		$this->load->view('header');

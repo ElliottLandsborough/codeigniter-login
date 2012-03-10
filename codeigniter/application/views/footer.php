@@ -1,5 +1,9 @@
   <footer>
-
+<?php
+echo '<pre>';
+print_r($this->session->userdata);
+echo '</pre>';
+?>
   </footer>
 
 
@@ -17,8 +21,3 @@
   </script>
 </body>
 </html>
-<?php
-echo '<!--<pre>';
-print_r($this->session->userdata);
-echo '</pre>-->';
-?>

@@ -1,7 +1,7 @@
 currently fucked:
  - permlib.php
  half way through modularizing permlib.php and adapting it to work with all permission subsets and defaults
- getperms needs to run through and if the perms so not exist yet it needs to get the defaults from defaultperms and then use them to write the default perms in the table
+ getperms needs to run through and if the perms do not exist yet it needs to get the defaults from defaultperms and then use them to write the default perms in the table
 
 added recently:
  - nested set demo
@@ -13,17 +13,10 @@ added recently:
  - minify js if need be - plugin installed
 
 todo
- - auto initialization of all perm levels
+ - db caching
  - tracking
  - permissions per post e.g only friends can see this, private for me, anyone but friends can see this
  - admin panel - change perms
- - different usertypes:
- --- normal user with profile
- ------ can own vouchers of many manufacturers
- --- company
- ------ can edit/disable/own vouchers
- --- moderator
- --- superadmin
  - adapt nested sets
  - vouchers
  - tomo
@@ -34,17 +27,6 @@ todo
  - password confirmation
  - email confirmation
  - user groups
-
- user_groups
-*perm_type
-group_name
-
-
-user_perms
-*user_id
-perm_type
-
-nested sets
 
 vouchers:
 
