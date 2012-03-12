@@ -9,6 +9,18 @@ added recently:
  - captcha - enable ~line 112  of controllers/user.php
  - password/email confirmation on registration
 
+ Chat:
+sudo start nodechat
+sudo stop nodechat
+tobegin monitoring to stop crashing - need to test:
+monit -d 60 -c /etc/monit/monitrc
+/etc/init.d/monit restart
+
+/etc/init/nodechat.conf
+/etc/monit/conf.d/nodechat.conf
+
+See here: http://howtonode.org/deploying-node-upstart-monit
+
 todo:
  - friends
  - search
