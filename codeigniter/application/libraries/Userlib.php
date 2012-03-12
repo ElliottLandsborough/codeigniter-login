@@ -152,16 +152,10 @@ class Userlib {
 			$input['user_perms'] = $CI->permlib->GetMask();
 			unset($input['newmask']);
 			$CI->permlib->SetPermissions($input);
+			$CI->permlib->RefreshMyPerms();
 			return $CI->db->update('users', $this, array('user_key' => $row->user_key));
 		}
-		else
-		{
-			return true;
-		}
-
     }
-
 }
-
 
 ?>

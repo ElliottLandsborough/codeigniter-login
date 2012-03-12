@@ -15,9 +15,9 @@ class User extends CI_Controller {
 			$this->load->library('form_validation');
 			$this->form_validation->set_rules('username', 	'Username', 				'required|min_length[3]|max_length[26]|is_unique[users.user_name]|alpha_dash');
 			$this->form_validation->set_rules('password', 	'Password', 				'required|min_length[6]|max_length[32]|matches[passconf]');
-			$this->form_validation->set_rules('passconf', 	'Password Confirmation', 	'required|min_length[6]|max_length[32]');
+			$this->form_validation->set_rules('passconf', 	'Password Confirmation', 	'required');
 			$this->form_validation->set_rules('email', 		'Email', 					'required|min_length[6]|max_length[32]|valid_email|is_unique[users.user_email]|matches[emailconf]');
-			$this->form_validation->set_rules('email', 		'Email Confirmation',		'required|min_length[6]|max_length[32]');
+			$this->form_validation->set_rules('email', 		'Email Confirmation',		'required');
 			if ($this->form_validation->run() == FALSE)
 			{
 				$this->load->view('user_regform');
@@ -38,7 +38,15 @@ class User extends CI_Controller {
 					{
 						// to make into email
 						$activationkey = $form['key'].mysql_insert_id();
-						echo 'Please verify your email <a href="activate/'.$activationkey.'">here</a>.';
+						$message = 'Please verify your email <a href="activate/'.$activationkey.'">here</a>.';
+						$this->load->library('email');
+						$this->email->from('elliott@landsborough.co.uk', 'Elliott Landsborough');
+						$this->email->to('elliott@landsborough.co.uk'); 
+						$this->email->subject('Email Activation');
+						$this->email->message($message);	
+						$this->email->send();
+						//echo $this->email->print_debugger();
+						echo $message;
 					}
 				}
 			}
@@ -74,7 +82,8 @@ class User extends CI_Controller {
 			$this->load->library('form_validation');
 			$this->form_validation->set_rules('username', 'Username', 'required|min_length[3]|max_length[26]');
 			$this->form_validation->set_rules('password', 'Password', 'required|min_length[6]|max_length[32]');
-			$this->form_validation->set_rules('recaptcha_response_field', 'Captcha', 'required|callback_recaptcha_validation');
+			// UNCOMMENT TO ENABLE CAPTCHA
+			//$this->form_validation->set_rules('recaptcha_response_field', 'Captcha', 'required|callback_recaptcha_validation');
 			$this->form_validation->set_message('recaptcha_validation', 'Invalid ReCaptcha entry.');
 			$this->load->helper('recaptcha');
 			$pubkey = '6Le0wc4SAAAAAIqQv17QjVwaOGQq4JDPFo5121RY';
@@ -109,8 +118,7 @@ class User extends CI_Controller {
 										$this->input->post("recaptcha_response_field"));
 		if(!$return->is_valid) 
 	    {
-			//return FALSE; // UNCOMMENT TO ENABLE CAPTCHA
-			return TRUE;
+			return FALSE;
 		}
 		else 
 	    {

@@ -133,37 +133,45 @@ class Permlib {
     public function getperms($input)
     {
     	$CI =& get_instance();
-    	$newinput['user_id'] = $input['user_id'];
-    	$parents = $this->DefaultPerms('parents');
-    	foreach ($parents as $parent)
-		{
-			$newinput['parent'] = $parent;
-			$defaultperms = $this->DefaultPerms($newinput);
-			if ($defaultperms != false)
+    	if ($input['user_id'] != null)
+    	{
+    		$newinput['user_id'] = $input['user_id'];
+	    	$parents = $this->DefaultPerms('parents');
+	    	foreach ($parents as $parent)
 			{
-				$table = $defaultperms['table'];
-				$field = $defaultperms['field'];
-				$pquery = $CI->db->get_where($table, array('user_id' => $newinput['user_id']));
-				if ($pquery->num_rows() == 0)
-	        	{
-	        		$this->InitializeDefaultPerms($newinput);
-	        		$pquery = $CI->db->get_where($table, array('user_id' => $newinput['user_id']));
-				}
-				if ($pquery->num_rows() != 0)
-	        	{
-					$prow = $pquery->row(0);
-					$perms[$field] = $prow->$field;
+				$newinput['parent'] = $parent;
+				$defaultperms = $this->DefaultPerms($newinput);
+				if ($defaultperms != false)
+				{
+					$table = $defaultperms['table'];
+					$field = $defaultperms['field'];
+					$pquery = $CI->db->get_where($table, array('user_id' => $newinput['user_id']));
+					if ($pquery->num_rows() == 0)
+		        	{
+		        		$this->InitializeDefaultPerms($newinput);
+		        		$pquery = $CI->db->get_where($table, array('user_id' => $newinput['user_id']));
+					}
+					if ($pquery->num_rows() != 0)
+		        	{
+						$prow = $pquery->row(0);
+						$perms[$field] = $prow->$field;
+					}
 				}
 			}
-		}
-		if (isset($perms))
-		{
-			return $perms;
-		}
-		else
-		{
-			return false;
-		}
+			if (isset($perms))
+			{
+				return $perms;
+			}
+			else
+			{
+				return false;
+			}
+    	}
+    	else
+    	{
+    		return false;
+    	}
+    	
     }
 
     // initialize default permissions
@@ -260,7 +268,7 @@ class Permlib {
 	{
 		if ($input['newmask']==null)
 		{
-			$theperms = $this->getperms($input['user_id']);
+			$theperms = $this->getperms($input);
 			$this->Mask = $theperms['user_perms'];
 		}
 		else
