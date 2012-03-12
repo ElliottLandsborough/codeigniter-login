@@ -13,7 +13,7 @@ class User extends CI_Controller {
 		{
 			$this->load->helper(array('form', 'url'));
 			$this->load->library('form_validation');
-			$this->form_validation->set_rules('username', 	'Username', 				'required|min_length[3]|max_length[26]|is_unique[users.user_name]');
+			$this->form_validation->set_rules('username', 	'Username', 				'required|min_length[3]|max_length[26]|is_unique[users.user_name]|alpha_dash');
 			$this->form_validation->set_rules('password', 	'Password', 				'required|min_length[6]|max_length[32]|matches[passconf]');
 			$this->form_validation->set_rules('passconf', 	'Password Confirmation', 	'required|min_length[6]|max_length[32]');
 			$this->form_validation->set_rules('email', 		'Email', 					'required|min_length[6]|max_length[32]|valid_email|is_unique[users.user_email]|matches[emailconf]');
