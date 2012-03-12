@@ -10,6 +10,7 @@ added recently:
  - password/email confirmation on registration
 
 todo:
+ - friends
  - search
  - admin panel - change perms
  - vouchers
@@ -21,7 +22,7 @@ todo:
 
 todo later:
  - Ajax form validation
- - chat - http://www.bluejavax.com/gmailfacebook-like-chat-with-codeigniter/ ?
+ - chat - limit it to friends list
  - tomo
  - permissions per post e.g only friends can see this, private for me, anyone but friends can see this
  - db caching
