@@ -13,14 +13,19 @@ class Permlib {
 
 	// parent perms
 	const ACCESS = 1; // email validation complete - use this to ban people
-	const COMMUNICATE = 2; // communication
-    const EDIT = 4; // profile edit
-    const VOUCHERS = 8; // vouchers
-    const BRAND = 16; // brand profile
-    const MODERATOR = 32; // mod profile
-    const ADMINISTRATOR = 64; // admin profile
+	const VISIBILITY = 2;
+	const COMMUNICATE = 4; // communication
+    const EDIT = 8; // profile edit
+    const VOUCHERS = 16; // vouchers
+    const BRAND = 32; // brand profile
+    const MODERATOR = 64; // mod profile
+    const ADMINISTRATOR = 128; // admin profile
     // insert categorized perms here - up to 32 per cat
     
+    // visibility perms
+    const SEARCHABLE = 1;
+    const PUBLIC_PROFILE = 2;
+
     // communication permissions
     const WALL = 1; // post on walls
     const STATUS = 2; // update status
@@ -77,6 +82,7 @@ class Permlib {
     		$input = array( 
 	    		permlib::ACCESS,
 				permlib::COMMUNICATE,
+				permlib::VISIBILITY,
 				permlib::EDIT,
 				permlib::VOUCHERS,
 				permlib::BRAND,
@@ -93,8 +99,19 @@ class Permlib {
 				// default permissions for standard users
 				$input['permsarray'] = array( 
 					permlib::COMMUNICATE,
+					permlib::VISIBILITY,
 					permlib::EDIT,
 					permlib::VOUCHERS
+				);
+			}
+			else if ($input['parent'] == permlib::VISIBILITY)
+			{
+				$input['table'] = 'user_visibility';
+				$input['field'] = 'visibility_perms';
+				// default permissions for standard users
+				$input['permsarray'] = array( 
+					permlib::SEARCHABLE,
+					permlib::PUBLIC_PROFILE
 				);
 			}
 			else if ($input['parent'] == permlib::COMMUNICATE)
@@ -133,7 +150,7 @@ class Permlib {
     public function getperms($input)
     {
     	$CI =& get_instance();
-    	if ($input['user_id'] != null)
+    	if ( isset($input['user_id']) && $input['user_id'] != null)
     	{
     		$newinput['user_id'] = $input['user_id'];
 	    	$parents = $this->DefaultPerms('parents');
@@ -206,6 +223,16 @@ class Permlib {
 			return false;
 		}
 
+    }
+
+    public function GetDefaultPerms($input)
+    {
+    	$defaultperms = $this->DefaultPerms($input);
+    	foreach ($defaultperms['permsarray'] as $perm)
+		{
+			$this->AddPermission($perm);
+		}
+		return $this->Mask;
     }
 
     public function SetPermissions($input)

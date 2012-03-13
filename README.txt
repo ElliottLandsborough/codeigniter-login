@@ -8,11 +8,11 @@ added recently:
  - minify js if need be - plugin installed
  - captcha - enable ~line 86 of controllers/user.php
  - password/email confirmation on registration
+ - nginx?
 
 todo:
  - friends
  - search
- - admin panel - change perms
  - vouchers
  - adapt nested sets
  - profiles
@@ -21,6 +21,7 @@ todo:
  - post content
 
 todo later:
+ - admin panel - change perms
  - Ajax form validation
  - chat - limit it to friends list
  - tomo
